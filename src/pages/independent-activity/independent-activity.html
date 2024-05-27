@@ -1,0 +1,94 @@
+<ion-header no-border id="header-container">
+  <ion-navbar>
+    <ion-title>
+      &nbsp;
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="textContent">
+    <ion-row class="zero-margin zero-padding acceptancecode-form" *ngIf="!showReuslt">
+      <form class="form" (ngSubmit)="saveIndependentActivity()" [formGroup]="validations_form_independent_activity" novalidate>
+        <ion-col col-12 class="zero-margin zero-padding">
+          <p text-left class="KaushanScript-Regular">Activity Name</p>
+        </ion-col>
+        <ion-col col-12 class="zero-margin zero-padding">
+            <ion-list inset>
+              <ion-item>
+                <ion-input text-left [(ngModel)]="activity_name" formControlName="activity_name" type="text"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages_independent_activity.activity_name">
+                  <div text-left class="error-message" *ngIf="validations_form_independent_activity.get('activity_name').hasError(validation.type) && (validations_form_independent_activity.get('activity_name').dirty || validations_form_independent_activity.get('activity_name').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+              <button type="submit" class="hiddenSubmitBtn"></button>
+            </ion-list>
+        </ion-col>
+        <ion-col col-12 class="zero-margin zero-padding">
+          <p text-left class="KaushanScript-Regular">Duration (in minutes)</p>
+        </ion-col>
+        <ion-col col-12 class="zero-margin zero-padding">
+            <ion-list inset>
+              <ion-item>
+                <ion-input text-left [(ngModel)]="duration" formControlName="duration" type="number"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages_independent_activity.duration">
+                  <div text-left class="error-message" *ngIf="validations_form_independent_activity.get('duration').hasError(validation.type) && (validations_form_independent_activity.get('duration').dirty || validations_form_independent_activity.get('duration').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </ion-list>
+        </ion-col>
+        <!-- <ion-col col-12 class="zero-margin zero-padding">
+          <p text-left class="KaushanScript-Regular">Today's Code</p>
+        </ion-col>
+        <ion-col col-12 class="zero-margin zero-padding">
+            <ion-list inset>
+              <ion-item>
+                <ion-input text-left [(ngModel)]="acceptance_code" formControlName="acceptance_code" type="text"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages_independent_activity.acceptance_code">
+                  <div text-left class="error-message" *ngIf="validations_form_independent_activity.get('acceptance_code').hasError(validation.type) && (validations_form_independent_activity.get('acceptance_code').dirty || validations_form_independent_activity.get('acceptance_code').touched)">
+                    {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </ion-list>
+        </ion-col> -->
+      </form>
+      <ion-col col-12>
+        <button class="submit-btn KaushanScript-Regular" ion-button color="danger" [disabled]="!validations_form_independent_activity.valid" (click)="saveIndependentActivity()">Submit</button>
+      </ion-col>
+      <ion-col col-12>
+        <p text-left class="highlight-text help-txt">
+         * In addition to activities presented in this app, use this screen to record any other physical activities performed by the student during the day.
+        </p>
+        <p text-left class="highlight-text help-txt">
+          * Your parent needs to endorse with today’s code
+        </p>
+        <p text-left class="highlight-text help-txt">
+          * If you have not received the daily code, please contact using the query link in this app.
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer no-border color='primary' id="footer-container" class="zero-margin zero-padding">
+  <ion-toolbar color='primary' class="zero-margin zero-padding">
+    <ion-row class="footer-icons-holder">
+      <ion-col col-4>
+        <div class="profile-avatar" (click)="goPage('UsersPage')"></div>
+        <div class="home-icon" (click)="goHome()"></div>
+      </ion-col>
+      <ion-col col-8>
+        <img src="assets/imgs/maverick_logo.png" class="logo-img">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

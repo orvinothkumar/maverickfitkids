@@ -1,0 +1,96 @@
+<ion-header no-border id="header-container">
+  <ion-navbar>
+    <ion-title>
+      &nbsp;
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2 text-center class="KaushanScript-Regular top-title">Happy Day {{userDetails?.studentName}} !</h2>
+  <ion-grid class="zero-margin zero-padding">
+    <ion-row class="zero-margin zero-padding">
+      <ion-col col-12>
+        <ion-avatar class="add-photo-circle">
+          <img src="{{imgPreview}}">
+        </ion-avatar>
+        <p class="user-star">{{totalCount}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <br/>
+        <ion-item class="student_class">
+          <ion-select text-center [(ngModel)]="selectMonth" (ionChange)="onSelectChange($event)" cancelText="Cancel" okText="OK" placeholder="Choose Month">
+            <ion-option value="01">Jan {{currYear}}</ion-option>
+            <ion-option value="02">Feb {{currYear}}</ion-option>
+            <ion-option value="03">Mar {{currYear}}</ion-option>
+            <ion-option value="04">Apr {{currYear}}</ion-option>
+            <ion-option value="05">May {{currYear}}</ion-option>
+            <ion-option value="06">Jun {{currYear}}</ion-option>
+            <ion-option value="07">Jul {{currYear}}</ion-option>
+            <ion-option value="08">Aug {{currYear}}</ion-option>
+            <ion-option value="09">Sep {{currYear}}</ion-option>
+            <ion-option value="10">Oct {{currYear}}</ion-option>
+            <ion-option value="11">Nov {{currYear}}</ion-option>
+            <ion-option value="12">Dec {{currYear}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <h4 class="KaushanScript-Regular top-title" text-center="">Your Consistency Monthly Tracker</h4>
+      </ion-col>
+    </ion-row>
+    <ion-slides pager *ngIf="weekList.length>0" (ionSlideDidChange)="slideChanged()">
+      <ion-slide *ngFor="let week of weekList; let j = index;">
+        <h4 class="KaushanScript-Regular top-title" text-center="">Week {{j+1}}</h4>
+        <ion-row>
+          <ion-col col-12 class="scroll-support">
+            <div *ngIf="maxStarCount[j]>0" class="container vertical flat">
+              <div class="progress-bar" *ngFor="let consistency of consistencyList[j]; let i = index;">
+                <div class="progress-track">
+                  <div class="progress-fill" [style.height.%]="consistency.percent" [style.top.%]="consistency.top">
+                    <span>{{consistency.star}}</span>
+                  </div>
+                </div>
+                <div class="year-div">{{consistency.starDay}}</div>
+              </div>
+            </div>
+            <div text-center *ngIf="maxStarCount[j]==0">
+              <p class="no-data">
+                No data found.
+              </p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <br>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+</ion-content>
+<ion-footer no-border color='primary' id="footer-container" class="zero-margin zero-padding">
+  <ion-toolbar color='primary' class="zero-margin zero-padding">
+    <ion-row class="footer-helptxt-holder">
+      <div class="help-txt">
+        <p>* Swipe left to see next week data</p>
+        <p *ngIf="(userDetails?.className == 'Pre KG' || userDetails?.className == 'LKG' || userDetails?.className == 'UKG' || userDetails?.className == 'I' || userDetails?.className == 'II' || userDetails?.className == 'III' || userDetails?.className == 'IV' || userDetails?.className == 'V')">
+          The key to fitness is consistency. When your parents validate your Everyday Exercises, Fit Spots, Pulse &  Transformation everyday, and when you participate in the app's Maverick Minute, What if, To be aspirations and Quiz, you earn stars that help you earn the Maverick Champ digital certificate for the month. Remember to share this with your friends and via social media.
+        </p>
+        <p *ngIf="(userDetails?.className == 'VI' || userDetails?.className == 'VII' || userDetails?.className == 'VIII')">
+          The key to fitness is consistency. When your parents / friends validate your Everyday Exercises, Fit Spots, Pulse &  Transformation everyday, and when you participate in the app's Maverick Minute, Active tracks / Sports drills, To be aspirations and Quiz, you earn stars that help you earn the Maverick Champ digital certificate for the month. Remember to share this with your friends and via social media.
+        </p>
+        <p *ngIf="(userDetails?.className == 'IX' || userDetails?.className == 'X' || userDetails?.className == 'XI' || userDetails?.className == 'XII')">
+          The key to fitness is consistency. When your parents / friends validate your Everyday Exercises, Fit Spots, Pulse / Guides &  Transformation everyday, and when you participate in the app's Maverick Minute, Active tracks, sports specific strengthening and To be aspirations  you earn stars that help you earn the Maverick Champ digital certificate for the month. Remember to share this with your friends and via social media.
+        </p>
+        <p text-center><a class="dg-link" (click)="goDigitalCertificate()"><u><b>Digital Certificate</b></u></a></p>
+      </div>
+    </ion-row>
+    <ion-row class="footer-icons-holder">
+      <ion-col col-4>
+        <div class="share-icon" (click)="sharePage()"></div>
+        <div class="back-icon" (click)="goHome()"></div>
+        <!-- <div class="settings-icon website-icon" (click)="openExternalLink('https://maverickfitkids.net', 'SettingsPage')"></div> -->
+      </ion-col>
+      <ion-col col-8>
+        <img src="assets/imgs/maverick_logo.png" class="logo-img">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

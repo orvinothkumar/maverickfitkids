@@ -1,0 +1,80 @@
+page-user-detail {
+  .add-photo-circle {
+    display: table;
+    margin: 5px auto;
+  }
+
+  .add-photo-circle img {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #031337 !important;
+  }
+
+  .top-title {
+    margin: 5px auto !important;
+  }
+
+  ion-row ion-col p {
+    margin: 2px 0;
+  }
+
+  .item {
+    padding-left: 0 !important;
+  }
+
+  #footer-container ion-col {
+    background: #FFF;
+  }
+
+  .toolbar-background {
+    background: #fff !important;
+  }
+
+  .footer-icons-holder,
+  .footer-icons-holder ion-col {
+    background: #021337 !important;
+  }
+
+  .col-legend{
+    color:  #021337 !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    font-weight: bold;
+  }
+  
+  .float-left{
+    margin-left: 15px !important;
+  }
+
+  .user-detail-menu-holder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .user-detail-menu{
+    width: 20vw;
+    height: 20vw;
+    border-radius: 20vw;
+    background-clip: padding-box;
+    margin: 1.5vw 2vw;
+    background-size: cover;
+    background-position: center center;
+    float: left;
+  }
+
+  .user-detail-3areview-menu{
+    background-image: url("../assets/imgs/settings/3a_review.png");
+  }
+
+  .user-detail-playlist-menu{
+    background-image: url("../assets/imgs/playlist_icon.png");
+  }
+
+  .user-detail-fitfest-menu{
+    background-image: url("../assets/imgs/settings/fit_fest.png");
+  }
+}

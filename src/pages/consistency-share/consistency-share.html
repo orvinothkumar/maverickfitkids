@@ -1,0 +1,54 @@
+<ion-header no-border id="header-container">
+  <ion-navbar>
+    <ion-title>
+      &nbsp;
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2 text-center class="KaushanScript-Regular top-title">Congratulations {{userDetails?.studentName}} !</h2>
+  <ion-grid class="zero-margin zero-padding">
+    <ion-row class="zero-margin zero-padding">
+      <ion-col col-12>
+        <ion-avatar class="add-photo-circle">
+          <img src="{{imgPreview}}">
+        </ion-avatar>
+        <p class="user-star">{{totalStarCount}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <br/>
+        <h4 class="KaushanScript-Regular top-title" text-center="">Your Consistency Weekly Tracker</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="scroll-support">
+        <div *ngIf="maxStarCount>0" class="container vertical flat">
+          <div class="progress-bar" *ngFor="let consistency of consistencyList; let i = index;">
+            <div class="progress-track">
+              <div class="progress-fill" [style.height.%]="consistency.percent" [style.top.%]="consistency.top">
+                <span>{{consistency.star}}</span>
+              </div>
+            </div>
+            <div class="year-div">{{consistency.starDay}}</div>
+          </div>
+        </div>
+        <div text-center *ngIf="maxStarCount==0">
+          <p class="no-data">
+            No data found.
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer no-border color='primary' id="footer-container" class="zero-margin zero-padding">
+  <ion-toolbar color='primary' class="zero-margin zero-padding">
+    <ion-row class="footer-icons-holder">
+      <ion-col col-12>
+        <img src="assets/imgs/maverick_logo.png" class="logo-img">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
