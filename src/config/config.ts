@@ -1,6 +1,6 @@
 export class AppConfig {
   public static currentEnvironment: string = "development";
-  public static API_BASE_URL = "http://52.74.156.238/studentappws_test/mobile/";
+  public static API_BASE_URL = "http://52.74.156.238/studentappws/mobile/";
   public static SITE_URL = "http://52.74.156.238/";
   public static APP_ID = "MFK";
   public static APP_VERSION = "2.4";

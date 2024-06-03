@@ -2031,6 +2031,10 @@ export class DataProvider {
       if (str.includes("and")) {
         let arr = str.split("and").map(Number);
         return arr;
+      } else if (str === "kgto2") {
+        let resArr = [];
+        resArr.push(-3, -2, -1, 1, 2);
+        return resArr;
       } else if (str.includes("to")) {
         let arr = str.split("to").map(Number);
         let resArr = [];
