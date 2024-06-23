@@ -415,7 +415,7 @@ export class FitZonePage {
                 buttons: [{
                   text: 'Ok',
                   handler: () => {
-                    //this.goHome();
+                    this.goHome();
                   }
                 }],
                 enableBackdropDismiss: false
@@ -429,7 +429,9 @@ export class FitZonePage {
               message: AppConfig.API_ERROR,
               buttons: [{
                 text: 'Ok',
-                handler: () => { }
+                handler: () => {
+                  this.goHome();
+                }
               }]
             });
             alert.present();

@@ -215,7 +215,7 @@ export class PhysicalLiteracyPage {
               {
                 text: "Ok",
                 handler: () => {
-                  //this.navCtrl.pop();
+                  this.goHome();
                 },
               },
             ],
@@ -232,7 +232,9 @@ export class PhysicalLiteracyPage {
           buttons: [
             {
               text: "Ok",
-              handler: () => {},
+              handler: () => {
+                this.goHome();
+              },
             },
           ],
         });

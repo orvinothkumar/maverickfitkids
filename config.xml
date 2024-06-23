@@ -15,7 +15,7 @@
     <allow-navigation href="file://*/*" />
     <allow-intent href="*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="22" />
     <preference name="android-targetSdkVersion" value="29" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
@@ -116,4 +116,5 @@
     <allow-navigation href="http://172.20.10.3:8100" />
     <allow-navigation href="http://192.168.1.112:8100" />
     <allow-navigation href="http://192.168.1.107:8100" />
+    <allow-navigation href="http://192.168.0.108:8100" />
 </widget>

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { Platform, IonicPage, NavController, NavParams } from "ionic-angular";
 import { DataProvider } from "../../providers/data/data";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 declare var window: any;
 
 @IonicPage()
@@ -24,6 +25,7 @@ export class ParentGatePage {
     public navCtrl: NavController,
     public platform: Platform,
     public navParams: NavParams,
+    private iab: InAppBrowser,
     public dataService: DataProvider
   ) {
     if (this.navParams.get("fromPage")) {
@@ -96,7 +98,9 @@ export class ParentGatePage {
       question.flashCardFlipped = false;
       if (answer.correct) {
         console.log("answer correct");
-        window.open(this.externalLink, "_system", "location=yes");
+        // window.open(this.externalLink, "_system", "location=yes");
+        const browser = this.iab.create(this.externalLink, '_system');
+        console.log(browser);
         this.navCtrl.setRoot(this.fromPage);
         return false;
       } else {
