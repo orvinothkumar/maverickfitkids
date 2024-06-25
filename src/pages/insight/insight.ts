@@ -53,7 +53,7 @@ export class InsightPage {
                 item.setAttribute("style", "visibility:hidden;height:0;");
               }
               console.log(AppConfig.SITE_URL);
-              this.insightContent.imagePath = AppConfig.SITE_URL + this.responseData.imagePath;
+              this.insightContent.imagePath = this.responseData.imagePath;
               this.insightContent.description = (this.responseData.description);
               var strMessage1 = document.getElementById("insight-content");
               strMessage1.innerHTML = (this.insightContent.description).replace(/(?:\r\n | \r | \n)/g, '<br>');

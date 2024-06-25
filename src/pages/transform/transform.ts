@@ -147,9 +147,7 @@ export class TransformPage {
             content: ''
           });
           loader.present();
-          
           this.dataService.markStarForParentTransformationChallenge(this.userDetails, this.acceptance_code).then((result) => {
-
             this.responseData = result;
             console.log(this.responseData);
             if (this.responseData.returnStatus != 0) {
@@ -199,6 +197,7 @@ export class TransformPage {
               }
               this.progressValue = this.progressValue * 14.2857;
               console.log(this.progressValue);
+              loader.dismiss();
               const alert = this.alertCtrl.create({
                 message: this.responseData.returnMessage,
                 buttons: [{
@@ -210,6 +209,7 @@ export class TransformPage {
               alert.present();
             } else if (this.responseData.returnStatus == 0) {
               console.log('returnStatus=>0');
+              loader.dismiss();
               const alert = this.alertCtrl.create({
                 message: this.responseData.returnMessage,
                 buttons: [{
@@ -222,6 +222,7 @@ export class TransformPage {
             }
           }, (err) => {
             console.log(err);
+            loader.dismiss();
             const alert = this.alertCtrl.create({
               message: AppConfig.API_ERROR,
               buttons: [{
